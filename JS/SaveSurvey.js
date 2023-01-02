@@ -22,21 +22,9 @@ function download(filename) {
         if(tmp != null)
         {
             tmp = document.getElementById("question" + i + "Mean").textContent;
-            text.push("\nQuestion"+ (i+1) + "Mean: " + tmp);
+            tmp2 = document.getElementById("question"+ i +"Variance").textContent;
+            text.push("\nQuestion"+ (i+1) + "Mean: " + tmp + "  Question"+ (i+1) + "Variance: " + tmp2);
         }
-        
-
-        // gets Variance and adds it to document 
-        tmp2= document.getElementById('question '+i+' Variance');
-        if(tmp2 != null)
-        {
-            tmp2= document.getElementById('question '+i+' Variance').textContent;
-            text.push("\nQuestion"+ (i+1) + "Variance: " + tmp2);
-        }
-
-
-
-
     }
     
        

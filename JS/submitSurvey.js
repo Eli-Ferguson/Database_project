@@ -16,12 +16,11 @@ function submitSurvey()
 
     let questions = surveyQuestionsArea.childNodes
 
-    console.log(questions.length)
+    // console.log(questions.length)
 
     for( let i = 1; i <= questions.length; i++ )
     {
         let inputBox = $('input[id^="question' + i +'"]')[0]
-
 
         if(inputBox.id.split('question' + i)[1].startsWith('Free'))
         {
@@ -30,8 +29,7 @@ function submitSurvey()
         }
         else
         {
-            answers.push(inputBox.value)
-
+            answers.push( $('input[name="scale' + i + '"]:checked').val() )
         }
     }
 
@@ -42,7 +40,7 @@ function submitSurvey()
     let jsonPayLoad = JSON.stringify({
 
         email: jsonSurvey['email'],
-        survey_id: jsonSurvey['surveyId'],
+        survey_id: jsonSurvey['survey_id'],
         answers: jsonSurvey['answers']
        
     });
@@ -69,7 +67,7 @@ function submitSurvey()
 
                 if(jsonObject.valid == "valid")
                 {
-                    // window.location.href = "./homePage.html"
+                    window.location.href = "./homePage.html"
                 }
                 else
                 {

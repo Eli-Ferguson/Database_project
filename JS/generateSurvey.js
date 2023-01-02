@@ -95,7 +95,7 @@ function generateSurvey(jsonSurvey)
                             '<label>' + scaleLabels[i] + '</label>' +
                         '</div>' +
                         '<div class="row">' +
-                            '<input id="question' + (idx+1) + 'Scale' + i + '" name="scale' + (idx+1) +'" type="radio" value="' + (idx+1) + '">' +
+                            '<input id="question' + (idx+1) + 'Scale' + i + '" name="scale' + (idx+1) +'" type="radio" value="' + (i+1) + '">' +
                         '</div>' +
                     '</div>'
             }

@@ -156,26 +156,26 @@ function createReportHTML(jsonReport)
 
             let scaleArray = []
 
-            for( let i = 0; i < jsonReport.questions.length; i++)
+            if(jsonReport.questions[i].type == 2)
             {
-                if(jsonReport.questions[i].type == 2)
-                {
-                    jsonReport.responses[i].forEach( (response) => {scaleArray.push(response.response)})
-                }
+                jsonReport.responses[i].forEach( (response) => {
+                    if(response.response != '') {scaleArray.push( parseInt( response.response) ) }
+                })
             }
+            
 
-            const calculateMean = (values) => {
-                const mean = (values.reduce((sum, current) => sum + current)) / values.length;
+            let calculateMean = (values) => {
+                let mean = (values.reduce((sum, current) => sum + current)) / values.length;
                 return mean;
             };
             
-            const calculateVariance = (values) => {
-                const average = calculateMean(values);
-                const squareDiffs = values.map((value) => {
-                    const diff = value - average;
+            let calculateVariance = (values) => {
+                let average = calculateMean(values);
+                let squareDiffs = values.map((value) => {
+                    let diff = value - average;
                     return diff * diff;
                 });
-                const variance = calculateMean(squareDiffs);
+                let variance = calculateMean(squareDiffs);
                 return variance;
             };
 
